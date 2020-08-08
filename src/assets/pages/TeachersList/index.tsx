@@ -15,8 +15,6 @@ function TeacherList() {
               <Input name="subject" label="matéria" />
               <Input name="week_day" label="Dia da semana" />
               <Input type="time" name= "time" label ="Hora" />
-
-
              </form>
            </PageHeader>
 

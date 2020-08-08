@@ -43,7 +43,9 @@
 
 }
 
-#page-teacher-form main fieldset legend .nput-block + .textarea-block {
+#page-teacher-form main fieldset legend .input-block + .textarea-block,
+#page-teacher-form main fieldset legend .input-block + .input-block
+{
 
     margin-top: 2.4rem;
 

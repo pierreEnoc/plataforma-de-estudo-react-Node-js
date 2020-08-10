@@ -10,6 +10,7 @@ import Textarea from '../../../components/Textarea';
 import Select from '../../../components/Select';
 
 import './styles.css';
+import api from '../../../services/api';
 //import { useState } from 'react';
 
 function TeacherForm() {
@@ -19,7 +20,7 @@ function TeacherForm() {
 
     const [avatar, setAvatar] = useState ('');
 
-    const [Whatsapp, setWatsapp] = useState ('');
+    const [watsapp, setWatsapp] = useState ('');
 
     const [bio, setBio] = useState ('');
 
@@ -58,10 +59,24 @@ function TeacherForm() {
     function handleCreateClass (e: FormEvent) {
         e.preventDefault();
 
+        api.post('classes', {
+            name,
+            avatar,
+            watsapp,
+            bio,
+            subject,
+            cost: Number(cost),
+            schedule: scheduleItems
+        }).then(() => {
+            alert('Cadastro realizado com sucesso!')
+        }).catch(() => {
+            alert('Erro no cadastro!');
+        })
+
         console.log ({
             name,
             avatar,
-            Whatsapp,
+            watsapp,
             bio,
             subject,
             cost,
@@ -108,7 +123,7 @@ function TeacherForm() {
                 <Input  
                     name="whatsapp" 
                     label ="Whatsapp"
-                    value={Whatsapp} 
+                    value={watsapp} 
                     onChange={(e) => { setWatsapp(e.target.value)}} 
                  
                      />

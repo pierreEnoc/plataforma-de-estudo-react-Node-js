@@ -35,8 +35,13 @@ function TeacherForm() {
     );
 
     function addNewScheduleItem () {
-
-    }
+        console.log('test');
+        setScheduleItems([
+             ...scheduleItems,
+              { week_day: 0, from: '', to: '' }
+           ]);
+         }
+         
     // setScheduleItemValue(0,'week_day', '2')
     function setScheduleItemValue (position: number, field: string, value: string) {
         const updateScheduleItems = scheduleItems.map((scheduleItem, index) => {
@@ -65,8 +70,8 @@ function TeacherForm() {
     }
 
  // function addNewScheduleItem() {
-    //  setScheduleItems([
-     //   ...scheduleItems,
+  //   setScheduleItems([
+   //     ...scheduleItems,
     // { week_day: 0, from: '', to: '' }
  // ]);
 //}
@@ -101,7 +106,7 @@ function TeacherForm() {
                      />
 
                 <Input  
-                    name="whatsappe" 
+                    name="whatsapp" 
                     label ="Whatsapp"
                     value={Whatsapp} 
                     onChange={(e) => { setWatsapp(e.target.value)}} 
@@ -153,10 +158,9 @@ function TeacherForm() {
                 </button>
                 </legend>
 
-                {scheduleItems.map((scheduleItem, index )=> {
+                {scheduleItems.map((scheduleItem, index) => {
                     return (
-
-                <div key = {scheduleItem.week_day } className="schedule-item">
+                <div key = {scheduleItem.week_day} className="schedule-item">
                  <Select 
                  name="week_day" 
                  label ="Dia da semana" 
@@ -166,7 +170,7 @@ function TeacherForm() {
                      { value: '0', label: 'Domingo'},
                      { value: '1', label: 'Segunda-feira'},
                      { value: '2', label: 'Terça-feira'},
-                     { value: '3 fisica', label: 'Quarta-feira'},
+                     { value: '3', label: 'Quarta-feira'},
                      { value: '4', label: 'Quinta-feira'},
                      { value: '5', label: 'Sexta-feira'},
                      { value: '6', label: 'Sábado'},

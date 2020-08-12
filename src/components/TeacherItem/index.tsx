@@ -5,27 +5,37 @@ import whatsappIcon from '../../assets/images/images/icons/whatsapp.svg';
 
 import  './styles.css';
 
-function TeacherItem() {
+export interface Teacher {
+    id: number;
+    avatar: string;
+    bio: string;
+    cost: number;
+    name: string;
+    subject: string;
+    watsapp: string;
+}
+
+interface TeacherItemProps {
+    teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
     return(
       
 <article className="teacher-item">
 <header>
-    <img src="https://avatars3.githubusercontent.com/u/15196571?s=60&v=4" alt="pierre"/>
+    <img src={teacher.avatar} alt = {teacher.name} />
     <div>
-        <strong>Pierre Enoc</strong>
-        <span>Química</span>
+        <strong>{teacher.name}</strong>
+        <span>{teacher.subject}</span>
     </div>
 </header>
-<p>
-Química para Vestibular foram elaboradas para alunos que conhecem bem essa matéria e precisam revisar conceitos e fazer exercícios.
-<br /><br />
-  Recomendamos que alunos com pouco conhecimento de Química também estudem as aulas de Química do Ensino Médio. 
-</p>
+    <p> {teacher.bio}  </p>
 
 <footer>
     <p>
         Preço/hora
-        <strong>R$ 20,00</strong>
+        <strong>R$ {teacher.cost}</strong>
     </p>
     <button type="button">
        <img src={whatsappIcon} alt="Whatsapp" /> 

@@ -1,5 +1,7 @@
 import React, {useState, FormEvent} from 'react';
 
+import { useHistory } from 'react-router-dom'
+
 import PageHeader from '../../../components/PageHeader';
 
 import Input from '../../../components/Input';
@@ -14,6 +16,9 @@ import api from '../../../services/api';
 //import { useState } from 'react';
 
 function TeacherForm() {
+
+    // redireciar pagina
+    const history = useHistory();
 
     // create state for each input    
     const [name, setName] = useState ('');
@@ -69,6 +74,8 @@ function TeacherForm() {
             schedule: scheduleItems
         }).then(() => {
             alert('Cadastro realizado com sucesso!')
+
+            history.push('/');
         }).catch(() => {
             alert('Erro no cadastro!');
         })
